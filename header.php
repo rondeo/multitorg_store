@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Realweb - интернет провайдер</title>
+	<title>Multitorg - магазин №1 в Крыму</title>
 
 	<meta name="description" content="">
 	

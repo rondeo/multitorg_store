@@ -9,7 +9,7 @@ var gulp           = require('gulp'),
 // Обновление страниц сайта на локальном сервере
 gulp.task('browser-sync', function() {
 	browserSync({
-		proxy: "multitorg:8080",
+		proxy: "multitorg.local:8080",
 		notify: false
 	});
 });
