@@ -26,6 +26,7 @@
 
 			       		?>
 
+<h3>It works. And reloads i hope. And ... What</h3>
 
 
 </body>
