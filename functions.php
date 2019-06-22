@@ -1,35 +1,25 @@
 <?php 
 
-function mytheme_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
-}
-add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
-
 
 // правильный способ подключить стили и скрипты
-add_action( 'wp_enqueue_scripts', 'brendiruy_scripts' );
-add_action( 'wp_enqueue_scripts', 'theme_name_styles' );
-
-function theme_name_styles() {
+function multitorg_styles() {
 	// wp_enqueue_style( 'bootstrap-reboot', get_template_directory_uri() . '/libs/bootstrap/scss/bootstrap-reboot.scss');
 	// wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/libs/bootstrap/dist/css/bootstrap.min.css');
 	// wp_enqueue_style( 'bootstrap-grid', get_template_directory_uri() . '/libs/bootstrap/dist/css/bootstrap-grid.css');
 	// wp_enqueue_style( 'owl', get_template_directory_uri() . '/libs/owl.carousel/dist/assets/owl.carousel.min.css');
 	// wp_enqueue_style( 'owl-theme', get_template_directory_uri() . '/libs/owl.carousel/dist/assets/owl.theme.default.min.css');
 	
+	wp_register_style( 'main-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'main-style', get_stylesheet_uri() );
 }
+add_action( 'wp_enqueue_scripts', 'multitorg_styles' );
 
-function brendiruy_scripts() {
-	add_action( 'wp_enqueue_scripts', 'my_scripts_method', 11 );
-	function my_scripts_method() {
-	wp_deregister_script( 'jquery' );
-	wp_register_script( 'jquery', get_template_directory_uri() . '/libs/jquery/dist/jquery.min.js', true);
-	wp_enqueue_script( 'jquery' );
-	
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/app.js', array('jquery'), null, false );
-	}
+function multitorg_scripts() {		
+	wp_register_script( 'scripts', get_template_directory_uri() . '/js/app.js');
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/app.js', '', '', true);
 }
+add_action( 'wp_enqueue_scripts', 'multitorg_scripts' );
+
 
 add_theme_support( 'custom-logo' );
 add_theme_support( 'post-thumbnails' );
@@ -69,3 +59,4 @@ function register_my_widgets(){
 
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
